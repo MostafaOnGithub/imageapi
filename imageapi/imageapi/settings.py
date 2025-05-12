@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v*a5=p6eqa!%#7kq#+08^v&9)^mk4aa$8it@l7j%+_+m-1w+ts
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'processor',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,9 +50,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',  
 ]
 
 ROOT_URLCONF = 'imageapi.urls'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+
+
+
+
 
 TEMPLATES = [
     {
